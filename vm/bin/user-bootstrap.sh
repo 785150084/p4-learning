@@ -3,10 +3,10 @@
 set -xe
 
 #Installs all the editors and set gui applications
-bash /vagrant/bin/gui-apps.sh
+bash /home/ubuntu/p4-learning/vm/bin/gui-apps.sh
 
 #Install Extra Networking Tools and Helpers
-bash /vagrant/bin/misc-install.sh
+bash /home/ubuntu/p4-learning/vm/bin/misc-install.sh
 
 # Install P4lang tools
-bash /vagrant/bin/install-p4-tools.sh
+bash /home/ubuntu/p4-learning/vm/bin/install-p4-tools.sh

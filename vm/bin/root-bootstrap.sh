@@ -71,7 +71,7 @@ sudo apt-get install -y --no-install-recommends \
 
 #Install pip from source
 apt-get purge python-pip
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py
 python get-pip.py
 
 #python libraries
@@ -81,10 +81,10 @@ pip install ipaddress
 pip install ipython ipdb
 
 #add swap memory
-bash /vagrant/bin/add_swap_memory.sh
+bash /home/ubuntu/p4-learning/vm/bin/add_swap_memory.sh
 
 # Disable passwordless ssh
-bash /vagrant/bin/ssh_ask_password.sh
+bash /home/ubuntu/p4-learning/vm/bin/ssh_ask_password.sh
 
 #create user p4
 useradd -m -d /home/p4 -s /bin/bash p4
@@ -96,11 +96,11 @@ update-locale LC_ALL="en_US.UTF-8"
 
 #set wallpaper
 cd /usr/share/lubuntu/wallpapers/
-cp /home/vagrant/nsg-logo.png .
+cp /home/ubuntu/nsg-logo.png .
 rm lubuntu-default-wallpaper.png
 ln -s nsg-logo.png lubuntu-default-wallpaper.png
-rm /home/vagrant/nsg-logo.png
-cd /home/vagrant
+rm /home/ubuntu/nsg-logo.png
+cd /home/ubuntu
 sed -i s@#background=@background=/usr/share/lubuntu/wallpapers/1604-lubuntu-default-wallpaper.png@ /etc/lightdm/lightdm-gtk-greeter.conf
 
 
@@ -117,7 +117,7 @@ EOF
 
 su p4 <<'EOF'
 cd /home/p4
-bash /vagrant/bin/user-bootstrap.sh
+bash /home/ubuntu/p4-learning/vm/bin/user-bootstrap.sh
 EOF
 
 # make sure all files in /home/p4 are owned by user p4
@@ -125,7 +125,7 @@ chown -R p4:p4 /home/p4/
 
 # Change Vagrant password. Otherwise if deployed in the wild it can be a vulnerability
 # Alternative would be to make vagrant and root users only sshable with a key
-echo "vagrant:gv82NEudNnp$w87[" | sudo chpasswd
+# echo "ubuntu:gv82NEudNnp$w87[" | sudo chpasswd
 
 # Do this last!
 reboot

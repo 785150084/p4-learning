@@ -334,9 +334,9 @@ function do_p4-utils {
 # Update scripts
 function do_install_scripts {
     mkdir -p /home/p4/bin
-    cp /vagrant/bin/update-bmv2.sh /home/p4/bin/update-bmv2
+    cp /home/ubuntu/p4-learning/vm/bin/update-bmv2.sh /home/p4/bin/update-bmv2
     chmod a+x /home/p4/bin/update-bmv2
-    cp /vagrant/bin/update-p4c.sh /home/p4/bin/update-p4c
+    cp /home/ubuntu/p4-learning/vm/bin/update-p4c.sh /home/p4/bin/update-p4c
     chmod a+x /home/p4/bin/update-p4c
 }
 
@@ -352,7 +352,7 @@ function do_p4-learning {
 # we need to verify if the current kernel is buggy or not
 function do_verify-ubuntu-bug {
     sudo pip install bs4
-    sudo python /vagrant/bin/test_veth_intf.py
+    sudo python /home/ubuntu/p4-learning/vm/bin/test_veth_intf.py
 }
 
 do_protobuf

@@ -27,7 +27,7 @@ sudo apt-get -y --no-install-recommends install \
 
 
 # Emacs
-sudo mv /home/vagrant/p4_16-mode.el /usr/share/emacs/site-lisp/
+sudo mv /home/ubuntu/p4_16-mode.el /usr/share/emacs/site-lisp/
 sudo mkdir /home/p4/.emacs.d/
 echo "(autoload 'p4_16-mode' \"p4_16-mode.el\" \"P4 Syntax.\" t)" > init.el
 echo "(add-to-list 'auto-mode-alist '(\"\\.p4\\'\" . p4_16-mode))" | tee -a init.el
@@ -42,7 +42,7 @@ mkdir -p .vim/ftdetect
 mkdir -p .vim/syntax
 echo "au BufRead,BufNewFile *.p4      set filetype=p4" >> .vim/ftdetect/p4.vim
 echo "set bg=dark" >> .vimrc
-sudo mv /home/vagrant/p4.vim .vim/syntax/
+sudo mv /home/ubuntu/p4.vim .vim/syntax/
 
 # Sublime
 cd /home/p4
